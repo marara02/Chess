@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chess</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script>
+  var first;
+  var second;
+  var p1 = 0;
+  var p2 = 0;
+    function style1()  {
+      try{
+      let x = document.getElementsByClassName('box');
+      let y = document.getElementsByClassName('box2');
+      for(let i=0; i <= 32; i++){
+        x[i].style.backgroundColor = 'SaddleBrown';
+        y[i].style.backgroundColor = 'SandyBrown';
+      }}
+      catch(e){
+        throw Error("Color exist");
+      }
+      finally{
+        alert("New style");
+      }
+    }
+    function style2()  {
+      try{
+      let x = document.getElementsByClassName('box');
+      let y = document.getElementsByClassName('box2');
+      let z = document.getElementsByClassName('bottom');
+      for(let i=0; i <= 32; i++){
+        x[i].style.backgroundColor = 'DarkTurquoise';
+        y[i].style.backgroundColor = 'Honeydew';
+      }
+        z.style.backgroundColor = 'aquamarine';
+    }
+      catch(e){
+        throw Error("Color exist");
+      }
+      finally{
+        alert("New style number 2");
+      }
+    }
+    function style3()  {
+      try{
+      let x = document.getElementsByClassName('box');
+      let y = document.getElementsByClassName('box2');
+      let z = document.getElementsByClassName('bottom');
+      for(let i=0; i <= 32; i++){
+        x[i].style.backgroundColor = 'midnightblue';
+        y[i].style.backgroundColor = 'white';
+      }
+        z.style.backgroundColor = 'aquamarine';
+    }
+      catch(e){
+        throw Error("Color exist");
+      }
+      finally{
+        alert("New style number 3");
+      }
+    }
+        function rotateElem() {
+            document.querySelector('.wrapper').style.transform
+                       = 'rotate(180deg)';
+        }
+        function rotateElem2() {
+            document.querySelector('.wrapper').style.transform
+                       = 'rotate(90deg)';
+        }
+
+      function Decrement2() {
+           p2 = 1;
+           if (p1 == 1){
+           p1 = 0;
+           clearTimeout(second);
+        }
+        var timer = document.getElementById("timer2");
+        var time = timer.innerHTML;
+        var a= time.split(":");
+        var m = a[0];
+        var s = a[1];
+
+        if (s == 0) {
+          if (m == 0) {
+              alert("Time up");
+
+              return;
+          }
+          m--;
+          if (m < 10) m = m;
+          s = 59;
+        }
+        else s--;
+        if (s < 10) s = "0" + s;
+        document.getElementById("timer2").innerHTML = m+":"+s;
+        first = setTimeout(Decrement2, 1000);
+      }
+        function Decrement1() {
+            p1 = 1;
+            if (p2 == 1){
+            p2 = 0;
+            clearTimeout(first);
+        }
+        var timer = document.getElementById("timer1");
+        var time = timer.innerHTML;
+        var a = time.split(":");
+        var m = a[0];
+        var s = a[1];
+        if (s == 0) {
+          if (m == 0) {
+              alert("Time up");
+
+              return;
+          }
+          m--;
+          if (m < 10) m = m;
+          s = 59;
+        }
+        else s--;
+        if (s < 10) s = "0" + s;
+        document.getElementById("timer1").innerHTML = m+":"+s;
+        second = setTimeout(Decrement1, 1000);
+      }
+    </script>
+</head>
+<style>
+body {
+  margin: 40px;
+  background-color: ivory;
+}
+.chess{
+  margin-top:-285px;
+  margin-left:198px;
+}
+button{
+  height: 50px;
+  margin-top:10px;
+}
+.buttons{
+  display: flex;
+  flex-direction: column;
+  width:90px;
+  height:120px;
+  font-weight:normal;
+}
+.buttons > div :hover{
+  background-color: aqua;
+}
+.main{
+  display:flex;
+  flex-wrap: wrap;
+}
+.wrapper {
+  border: 20px solid black;
+  width: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(8, 70px);
+  grid-template-rows: 40px repeat(8, 70px) 40px;
+  grid-auto-flow: row;
+}
+.wrapper-inner{
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(8, auto);
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  align-items: strech;
+}
+
+.box {
+  padding: 20px;
+  font-size: 150%;
+  background-color: black;
+  text-align: center;
+}
+.box2 {
+  padding: 20px;
+  font-size: 150%;
+  background-color:white;
+  text-align: center;
+}
+.box-inner{
+  text-align: center;
+  align-self: center;
+}
+.box-inner2{
+  text-align: center;
+  align-self: center;
+  transform:rotate(180deg);
+}
+.top,
+.bottom,.right,.left{
+  display: grid;
+  align-items: stretch;
+  background-color: white;;
+}
+.top {
+  grid-column-start: 1;
+  grid-column-end: 9;
+}
+.bottom {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  /*grid-row-start: 10;
+  grid-row-end: 10;*/
+}
+.vertical-inner{
+  display: grid;
+  grid-gap: 0;
+  grid-template-rows: repeat(8, auto);
+  grid-template-columns: auto;
+  grid-auto-flow:column;
+  align-items: strech;
+}
+.left{
+  grid-column-start:0;
+  grid-cloumn-end:10;
+  grid-row-start:1;
+  grid-row-end:11;
+  text-align:center;
+}
+.number{
+  text-align:center;
+}
+.number1{
+  text-align:center;
+}
+.div{
+  margin-left:40px;
+  margin-top:-200px;
+}
+.b{margin-left:40px;
+  width:120%;
+  border:1px solid black;
+}
+.b:hover{
+  background-color:green;
+}
+/* .cony{
+  display:inline-block;
+  margin-top:-420px;
+} */
+}
+.all{
+  display:flex;
+  flex-wrap: wrap;
+}
+.ttt{
+  float:left;
+  width:150px;
+  margin-left:880px;
+  margin-top:-560px;
+  background-color:Bisque;
+}
+.text{
+  letter-spacing: 5px;
+  font-size:30px;
+  text-align:center;
+  background-color:Ivory;
+}
+#rotate{
+  transform: rotate(180deg);
+  text-align:center;
+}
+#down{
+  text-align:center;
+}
+#timer1{
+  background-color:PapayaWhip;
+  color:black;
+  font-size: 180%;
+}
+#timer2{
+  background-color:PapayaWhip;
+  color:black;
+  font-size: 180%;
+}
+</style>
+<div class="all">
+<body>
+  <div class="main">
+  <div class ="buttons">
+    <button type="button" class="btn btn-default" onclick="style1()">Style 1</button>
+    <button type="button" class="btn btn-default" onclick="style2()">Style 2</button>
+    <button type="button" class="btn btn-default"onclick="style3()">Style 3</button>
+    <button type="button" class="btn btn-default"onclick="style4()">Style 4</button>
+    <button type="button" class="btn btn-default"onclick="style5()">Style 5</button>
+    <button type="button"  class="btn btn-default" onclick="rotateElem()">180</button>
+    <button  type="button" class="btn btn-default"onclick="rotateElem2()">90 </button
+  </div>
+<div class="chess">
+  <div class="wrapper">
+  <div class="bottom">
+    <div class="wrapper-inner">
+      <div class="box-inner2">A</div>
+      <div class="box-inner2">B</div>
+      <div class="box-inner2">C</div>
+      <div class="box-inner2">D</div>
+      <div class="box-inner2">E</div>
+      <div class="box-inner2">F</div>
+      <div class="box-inner2">G</div>
+      <div class="box-inner2">H</div>
+    </div>
+  </div>
+<!--  <div class = "right">
+      <div class="number"></div>
+      <div class="number1">1</div>
+      <div class="number1">2</div>
+        <div class="number1">3</div>
+          <div class="number1">4</div>
+            <div class="number1">5</div>
+              <div class="number1">6</div>
+                <div class="number1">7</div>
+                  <div class="number1">8</div>
+                    <div class="number"></div>
+                  </div>
+                </div>-->
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+  <div class="box2"></div>
+  <div class="box"></div>
+
+  <div class="bottom">
+    <div class="wrapper-inner">
+      <div class="box-inner">A</div>
+      <div class="box-inner">B</div>
+      <div class="box-inner">C</div>
+      <div class="box-inner">D</div>
+      <div class="box-inner">E</div>
+      <div class="box-inner">F</div>
+      <div class="box-inner">G</div>
+      <div class="box-inner">H</div>
+    </div>
+  </div>
+
+</div>
+</div>
+<p id="first"></p>
+<p id="second"></p>
+<div class="ttt">
+  <p class="text">Timer</p>
+  <div id = "rotate">
+           <button type="button" class="btn btn-info" onclick="Decrement1()">Player №1</button>
+          <p id="timer1">5:00</p>
+        </div>
+        <div id = "down">
+    <button type="button" class="btn btn-info" onclick="Decrement2()">Player №2</button>
+          <p id="timer2">5:00</p>
+        </div>
+   </div>
+ </div>
+</div>
+</body>
+</html>

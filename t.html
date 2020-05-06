@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script>
+    var t;
+    var d;
+    var p1 = 0;
+    var p2 = 0;
+  function Decrement2() {
+
+    p2 = 1;
+       if (p1 == 1){
+        p1 = 0;
+        clearTimeout(d);
+    }
+    var timer = document.getElementById("timer2");
+    var time = timer.innerHTML;
+    var a= time.split(":");
+    var m = a[0];
+    var s = a[1];
+
+    if (s == 0) {
+      if (m == 0) {
+          alert("Time up");
+
+          return;
+      }
+      m--;
+      if (m < 10) m = m;
+      s = 59;
+    }
+    else s--;
+    if (s < 10) s = "0" + s;
+    document.getElementById("timer2").innerHTML = m+":"+s;
+    t = setTimeout(Decrement2, 1000);
+  }
+    function Decrement1() {
+        p1 = 1;
+    if (p2 == 1){
+        p2 = 0;
+        clearTimeout(t);
+    }
+    var timer = document.getElementById("timer1");
+    var time = timer.innerHTML;
+    var a = time.split(":");
+    var m = a[0];
+    var s = a[1];
+    if (s == 0) {
+      if (m == 0) {
+          alert("Time up");
+
+          return;
+      }
+      m--;
+      if (m < 10) m = m;
+      s = 59;
+    }
+    else s--;
+    if (s < 10) s = "0" + s;
+    document.getElementById("timer1").innerHTML = m+":"+s;
+    d = setTimeout(Decrement1, 1000);
+  }
+  </script>
+<div style = "width:200px; border:1px solid black;" >
+  <div id = "rotate" style=" transform: rotate(180deg);text-align:center;">
+           <button type="button" class="btn btn-info" onclick="Decrement1()">Player №1</button>
+          <p ><span id="timer1" style="color:black; font-size: 180%; ">5:00</span></p>
+        </div>
+        <div id = "normtimer" style = "text-align:center;">
+    <button type="button" class="btn btn-info" onclick="Decrement2()">Player №2</button>
+          <p><span id="timer2" style="color:black; font-size: 180%;">5:00</span></p>
+        </div>
+   </div>

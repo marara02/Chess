@@ -1,0 +1,96 @@
+body {
+  margin: 40px;
+  background-color: #5d5d5d;
+}
+button{
+  height: 50px;
+  margin-top:10px;
+}
+.buttons{
+  display: flex;
+  flex-direction: column;
+  width:90px;
+  height:90px;
+  font-weight:normal;
+}
+.buttons > div :hover{
+  background-color: aqua;
+}
+.main{
+  display:flex;
+  flex-wrap: wrap;
+}
+.wrapper {
+  border: 20px double black;
+  width: 560px;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(8, 70px);
+  grid-template-rows: 40px repeat(8, 70px) 40px;
+  grid-auto-flow: row;
+}
+.wrapper-inner{
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: repeat(8, auto);
+  grid-template-rows: auto;
+  grid-auto-flow: row;
+  align-items: strech;
+}
+
+.box {
+  padding: 20px;
+  font-size: 150%;
+  background-color: black;
+  text-align: center;
+}
+.box2 {
+  padding: 20px;
+  font-size: 150%;
+  background-color:white;
+  text-align: center;
+}
+.box-inner{
+  text-align: center;
+  align-self: center;
+}
+.box-inner2{
+  text-align: center;
+  align-self: center;
+  transform:rotate(180deg);
+}
+.top,
+.bottom{
+  display: grid;
+  align-items: stretch;
+  background-color: white;;
+}
+.top {
+  grid-column-start: 1;
+  grid-column-end: 9;
+}
+.bottom {
+  grid-column-start: 1;
+  grid-column-end: 9;
+  /*grid-row-start: 10;
+  grid-row-end: 10;*/
+}
+.vertical-inner{
+  display: grid;
+  grid-gap: 0;
+  grid-template-rows: repeat(8, auto);
+  grid-template-columns: auto;
+  grid-auto-flow:column;
+  align-items: strech;
+}
+.left,
+.right{
+  display:grid;
+  background-color:white;
+}
+.left{
+  grid-row-start:1;
+  grid-row-end:9;
+  margin-right: auto;
+}

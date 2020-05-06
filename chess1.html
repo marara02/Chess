@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>chess</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Orbitron:400,500,600,700,800,900&display=swap');
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: times new roman;
+		}
+		body{
+			display: flex;
+			flex-direction: row;
+		}
+		main{
+			width: 80%;
+			min-height: 100vh;
+			border: 5px solid white;
+			background-color: black;
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.butony{
+			width: 20%;
+			min-height: 100vh;
+			border: 5px solid black;
+			background-color: white;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		.w3-btn{
+			width: 100px;
+			margin-bottom: 20px;
+			letter-spacing: 3px;
+			font-size: 11pt;
+			color: white;
+			font-weight: 500;
+		}
+		.main{
+			width: 862px;
+			height: 862px;
+			background-color: white;
+		}
+
+		.leftEl{
+			width: 30px;
+			height: 30px;
+		}
+		.top-letters{
+			display: flex;
+			flex-direction: row;
+			height: 30px;
+		}
+		.top-letters p{
+			width: 100px;
+			height: 30px;
+			transform: rotate(180deg);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: 700;
+		}
+		.mid{
+			height: 802px;
+			display: flex;
+			flex-direction: row;
+
+		}
+		.left-letters{
+			display: flex;
+			flex-direction: column;
+			width: 30px;
+		}
+		.left-letters p{
+			height: 100px;
+			width: 30px;
+			transform: rotate(0deg);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: 700;
+		}
+		.board{
+			width: 802px;
+			display: flex;
+			flex-wrap: wrap;
+			border: 1px solid black;
+		}
+		.board > div{
+			display: flex;
+			flex-direction: row;
+		}
+		[name="black"]{
+			height: 100px;
+			width: 100px;
+			background-color: black;
+		}
+		[name="white"]{
+			height: 100px;
+			width: 100px;
+			background-color: white;
+		}
+		.right-letters{
+			display: flex;
+			flex-direction: column;
+			width: 30px;
+		}
+		.right-letters p{
+			height: 100px;
+			width: 30px;
+			transform: rotate(180deg);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-weight: 700;
+		}
+		.bottom-letters{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			height: 30px;
+		}
+
+		.bottom-letters p{
+			width: 100px;
+			height: 30px;
+			transform: rotate(0deg);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			font-weight: 600;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<div class="main">
+			<div class="top-letters" id="top">
+				<div class="leftEl"></div>
+				<p class="a">A</p>
+				<p class="a">B</p>
+				<p class="a">C</p>
+				<p class="a">D</p>
+				<p class="a">E</p>
+				<p class="a">F</p>
+				<p class="a">G</p>
+				<p class="a">H</p>
+				<div class="leftEl"></div>
+			</div>
+			<div class="mid">
+				<div class="left-letters" id="left">
+					<p class="b">8</p>
+					<p class="b">7</p>
+					<p class="b">6</p>
+					<p class="b">5</p>
+					<p class="b">4</p>
+					<p class="b">3</p>
+					<p class="b">2</p>
+					<p class="b">1</p>
+				</div>
+				<div class="board">
+					<div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+					</div>
+					<div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+					</div>
+					<div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+					</div>
+					<div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+					</div>
+					<div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+					</div>
+					<div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+					</div>
+					<div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+					</div>
+					<div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+						<div class="c" name="black"></div>
+						<div name="white"></div>
+					</div>
+				</div>
+				<div class="right-letters" id="right">
+					<p class="a">8</p>
+					<p class="a">7</p>
+					<p class="a">6</p>
+					<p class="a">5</p>
+					<p class="a">4</p>
+					<p class="a">3</p>
+					<p class="a">2</p>
+					<p class="a">1</p>
+				</div>
+			</div>
+			<div class="bottom-letters" id="bottom">
+				<div class="leftEl"></div>
+				<p class="b">A</p>
+				<p class="b">B</p>
+				<p class="b">C</p>
+				<p class="b">D</p>
+				<p class="b">E</p>
+				<p class="b">F</p>
+				<p class="b">G</p>
+				<p class="b">H</p>
+				<div class="leftEl"></div>
+			</div>
+		</div>
+	</main>
+	<div class="butony">
+		<input type="button" class="w3-btn w3-black" id="skin1" value="Skin 1">
+		<input type="button" class="w3-btn w3-black" id="skin2" value="Skin 2">
+		<input type="button" class="w3-btn w3-black" id="skin3" value="Skin 3">
+		<input type="button" class="w3-btn w3-black" id="skin4" value="Skin 4">
+		<input type="button" class="w3-btn w3-black" id="skin5" value="Skin 5">
+		<input type="button" class="w3-btn w3-black" id="rotate" value="Rotate">
+	</div>
+	<script type="text/javascript">
+		document.getElementById("skin1").onclick = function(){
+			var a = document.getElementsByClassName("a");
+			var b = document.getElementsByClassName("b");
+			var c = document.getElementsByClassName("c");
+			document.getElementById("top").style.backgroundColor = "white";
+			document.getElementById("left").style.backgroundColor = "white";
+			document.getElementById("right").style.backgroundColor = "white";
+			document.getElementById("bottom").style.backgroundColor = "white";
+			document.querySelector(".board").style.border = "1px solid black";
+			for (var i = 0; i < a.length; i++) {
+				a[i].style.color = "black";
+			}
+			for (var i = 0; i < b.length; i++) {
+				b[i].style.color = "black";
+			}
+			for (var i = 0; i < c.length; i++) {
+				c[i].style.backgroundColor = "black";
+			}
+		}
+
+		document.getElementById("skin2").onclick = function(){
+			var a = document.getElementsByClassName("a");
+			var b = document.getElementsByClassName("b");
+			var c = document.getElementsByClassName("c");
+			document.getElementById("top").style.backgroundColor = "red";
+			document.getElementById("left").style.backgroundColor = "red";
+			document.getElementById("right").style.backgroundColor = "red";
+			document.getElementById("bottom").style.backgroundColor = "red";
+			document.querySelector(".board").style.border = "1px solid white";
+			for (var i = 0; i < a.length; i++) {
+				a[i].style.color = "white";
+			}
+			for (var i = 0; i < b.length; i++) {
+				b[i].style.color = "white";
+			}
+			for (var i = 0; i < c.length; i++) {
+				c[i].style.backgroundColor = "red";
+			}
+		}
+
+		document.getElementById("skin3").onclick = function(){
+			var a = document.getElementsByClassName("a");
+			var b = document.getElementsByClassName("b");
+			var c = document.getElementsByClassName("c");
+			document.getElementById("top").style.backgroundColor = "#C19A6B";
+			document.getElementById("left").style.backgroundColor = "#C19A6B";
+			document.getElementById("right").style.backgroundColor = "#C19A6B";
+			document.getElementById("bottom").style.backgroundColor = "#C19A6B";
+			document.querySelector(".board").style.border = "1px solid white";
+			for (var i = 0; i < a.length; i++) {
+				a[i].style.color = "white";
+			}
+			for (var i = 0; i < b.length; i++) {
+				b[i].style.color = "white";
+			}
+			for (var i = 0; i < c.length; i++) {
+				c[i].style.backgroundColor = "#C19A6B";
+			}
+		}
+
+		document.getElementById("skin4").onclick = function(){
+			try{
+				document.getElementsByClassName("afsd").style.color = "black";
+			}
+			catch(e){
+				throw e;
+			}
+			finally{
+				console.log("don't worry there is no error")
+			}
+
+		}
+
+		document.getElementById("skin5").onclick = function(){
+			try{
+				for (var i = 0; i < a.length; i++) {
+					a[i].style.color = "white";
+				}
+
+			}
+			catch(e){
+				throw e;
+			}
+			finally{
+				console.log("don't worry there is no error")
+			}
+			document.getElementById("top").style.backgroundColor = "#C19A6B";
+			document.getElementById("left").style.backgroundColor = "#C19A6B";
+			document.getElementById("right").style.backgroundColor = "#C19A6B";
+			document.getElementById("bottom").style.backgroundColor = "#C19A6B";
+			document.querySelector(".board").style.border = "1px solid white";
+
+			for (var i = 0; i < b.length; i++) {
+				b[i].style.color = "white";
+			}
+			for (var i = 0; i < c.length; i++) {
+				c[i].style.backgroundColor = "#C19A6B";
+			}
+		}
+
+		document.querySelector("#rotate").onclick = function(){
+			var top = document.querySelector(".top-letters");
+			var left = document.querySelector(".left-letters");
+			var right = document.querySelector(".right-letters");
+			var bottom = document.querySelector(".bottom-letters");
+			const styler = window.getComputedStyle(top);
+			var toper = styler.getPropertyValue('flex-direction');
+			if(toper == "row"){
+				top.style.flexDirection = "row-reverse";
+				bottom.style.flexDirection = "row-reverse";
+				left.style.flexDirection = "column-reverse";
+				right.style.flexDirection = "column-reverse";
+			}
+			else{
+				top.style.flexDirection = "row";
+				bottom.style.flexDirection = "row";
+				left.style.flexDirection = "column";
+				right.style.flexDirection = "column";
+			}
+		}
+	</script>
+</body>
+</html>
